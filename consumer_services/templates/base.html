@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Service Request Page{% endblock %}</title>
+    <style>
+        /* CSS styles */
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* light gray background */
+            color: #333; /* dark gray text color */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Make the body at least the height of the viewport */
+        }
+
+        /* Header styles */
+        header {
+            background-color: #fff; /* white background */
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333; /* dark gray link color */
+        }
+
+        nav ul li a:hover {
+            color: #666; /* darker gray on hover */
+        }
+
+        /* Main content styles */
+        main {
+            flex: 1; /* Grow to fill available space */
+            padding: 20px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #fff; /* white background */
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ccc; /* light gray border on top */
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Your header content goes here -->
+        <h1>Asian gas utility company</h1>
+        <nav>
+            <!-- Your navigation menu goes here -->
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/request_tracking.html">Service Requests</a></li>
+                <li><a href=#>About</a></li>
+                <li><a href=#>Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- The main content of each page will be inserted here -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Your footer content goes here -->
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = '/requested_services/'; // Change the URL to the page you want to redirect to
+        });
+        // JavaScript code
+        // Example: Toggle navigation menu on small screens
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

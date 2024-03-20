@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* CSS styles */
+    /* Reset default margin and padding */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2; /* light gray background */
+        color: #333; /* dark gray text color */
+    }
+
+    /* Request card styles */
+    .request-card {
+        background-color: #fff; /* white background */
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px; /* rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        transition: transform 0.3s ease-in-out; /* smooth transition */
+    }
+
+    .request-card:hover {
+        transform: translateY(-5px); /* lift up on hover */
+    }
+
+    .request-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #555; /* dark gray heading color */
+    }
+
+    .request-card p {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #777; /* light gray text color */
+    }
+
+    .request-card p:last-child {
+        margin-bottom: 0; /* remove margin-bottom for last paragraph */
+    }
+</style>
+
+{% for request in service_requests %}
+<div class="request-card">
+    <h3>{{ request.request_type }}</h3>
+    <p>Status: {{ request.status }}</p>
+    <p>Submitted At: {{ request.submitted_at }}</p>
+    {% if request.resolved_at %}
+        <p>Resolved At: {{ request.resolved_at }}</p>
+    {% endif %}
+    <!-- Display other request details -->
+</div>
+{% endfor %}
+
+<script>
+    // JavaScript code
+    // Example: Add console log on card click
+    const requestCards = document.querySelectorAll('.request-card');
+    requestCards.forEach(card => {
+        card.addEventListener('click', () => {
+            console.log('Card clicked:', card.querySelector('h3').textContent);
+        });
+    });
+</script>
+{% endblock %}

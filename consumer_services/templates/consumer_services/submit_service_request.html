@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* CSS styles */
+    /* Reset default margin and padding */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2; /* light gray background */
+        color: #333; /* dark gray text color */
+    }
+
+    /* Form container styles with background image */
+    .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-image: url('your-background-image.jpg'); /* Add your background image URL here */
+        background-size: cover;
+        background-position: center;
+        border: 2px solid #000; /* dark black border */
+        border-radius: 8px; /* rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    }
+
+    /* Form styles */
+    form {
+        background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white background for better readability */
+        padding: 20px;
+        border-radius: 8px; /* rounded corners */
+    }
+
+    form h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    form button {
+        display: block;
+        width: calc(100% - 20px); /* button width adjusted for padding */
+        margin-top: 20px; /* space between attachment file and button */
+        padding: 10px;
+        background-color: #80bfff; /* light blue background */
+        border: none;
+        border-radius: 5px; /* rounded corners */
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out; /* smooth transition */
+    }
+
+    form button:hover {
+        background-color: #4d94ff; /* darker blue on hover */
+    }
+</style>
+
+<div class="form-container">
+    <h2>Submit Service Request</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript code
+    // Example: Alert message on form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Form submitted!');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* CSS styles */
+    /* Reset default margin and padding */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2; /* light gray background */
+        color: #333; /* dark gray text color */
+    }
+
+    /* Form styles */
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff; /* white background */
+        border-radius: 8px; /* rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        background-image: url('resources/image.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    form h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    form button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #ccc; /* gray background */
+        border: none;
+        border-radius: 5px; /* rounded corners */
+        cursor: pointer;
+    }
+
+    form button:hover {
+        background-color: #666; /* darker gray on hover */
+    }
+</style>
+
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+
+<script>
+    // JavaScript code
+    // Example: Alert message on form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Form submitted!');
+    });
+</script>
+{% endblock %}
